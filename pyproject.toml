@@ -3,6 +3,7 @@ name = "michellespkg"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
+license = {file = "LICENSE"}
 authors = [
     { name = "Michelle Hirsch", email = "mhirsch@mathworks.com" }
 ]
