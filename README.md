@@ -52,6 +52,13 @@ This package is not yet available on PyPI. To install it for development or loca
     uv pip install -e . --no-deps # --no-deps because sync already handled them
     ```
 
+## Try it out in a Jupyter notebook:
+
+Explore `michellespkg` interactively with our Jupyter Notebook tutorial. You can run it directly in your browser using Google Colab:
+
+[!Open In Colab](https://colab.research.google.com/github/michellehirsch/michellespkg/blob/main/examples/tutorial.ipynb)
+
+
 ## Usage
 
 Once installed, you can import and use the functions in your Python scripts:
