@@ -58,6 +58,7 @@ Explore `michellespkg` interactively with our Jupyter Notebook tutorial. You can
 
 [!Open In Colab](https://colab.research.google.com/github/michellehirsch/michellespkg/blob/main/examples/tutorial.ipynb)
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/michellehirsch/michellespkg/HEAD?urlpath=%2Fdoc%2Ftree%2Fexamples%2Ftutorial.ipynb)
 
 ## Usage
 
