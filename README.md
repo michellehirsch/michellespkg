@@ -54,9 +54,9 @@ This package is not yet available on PyPI. To install it for development or loca
 
 ## Try it out in a Jupyter notebook:
 
-Explore `michellespkg` interactively with our Jupyter Notebook tutorial. You can run it directly in your browser using Google Colab:
+Explore `michellespkg` interactively with our Jupyter Notebook tutorial. You can run it directly in your browser using Google Colab or Binder:
 
-[!Open In Colab](https://colab.research.google.com/github/michellehirsch/michellespkg/blob/main/examples/tutorial.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/michellehirsch/michellespkg/blob/main/examples/tutorial.ipynb)
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/michellehirsch/michellespkg/HEAD?urlpath=%2Fdoc%2Ftree%2Fexamples%2Ftutorial.ipynb)
 
