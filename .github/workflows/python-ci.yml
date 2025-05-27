@@ -1,0 +1,54 @@
+# .github/workflows/python-ci.yml
+
+name: Python CI for michellespkg
+
+on:
+  push:
+    branches: [ main ] # Or "master" if that's your default branch
+  pull_request:
+    branches: [ main ] # Or "master"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [ "3.13" ] # Your pyproject.toml specifies >=3.13
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install uv
+      run: curl -LsSf https://astral.sh/uv/install.sh | sh
+
+    - name: Add uv to GITHUB_PATH
+      # Ensures uv is available in subsequent steps
+      run: echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+
+    - name: Cache uv global directory
+      # Speeds up dependency installation in subsequent runs
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/uv
+        key: ${{ runner.os }}-uv-${{ hashFiles('**/pyproject.toml') }}-${{ hashFiles('**/uv.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-uv-${{ hashFiles('**/pyproject.toml') }}-
+          ${{ runner.os }}-uv-
+
+    - name: Create virtual environment
+      run: uv venv
+      # uv will create a .venv in the project root
+
+    - name: Install dependencies
+      # uv pip install will automatically use the .venv if it exists
+      run: uv pip install -e ".[dev]"
+
+    - name: Run tests
+      run: uv run pytest
