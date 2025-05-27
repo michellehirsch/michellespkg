@@ -2,7 +2,7 @@ import michellespkg
 
 # Calculate area of a rectangle
 rect_area = michellespkg.area_rectangle(10, 5)
-print(f"Area of rectangle: {rect_area}")
+print(f"Area of rectangle: {rect_area} ")
 
 # Calculate area of a circle
 circ_area = michellespkg.area_circle(7)
