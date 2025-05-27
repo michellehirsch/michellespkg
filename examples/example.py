@@ -19,4 +19,4 @@ michellespkg.plot_rectangle(length=10, width=5)
 michellespkg.plot_circle(radius=7, center=(2, 2))
 
 # Visualize a right-angled triangle
-michellespkg.plot_triangle(base=8, height=4, origin=(1,1))
+michellespkg.plot_triangle(base=8, height=4, origin=(1, 1))

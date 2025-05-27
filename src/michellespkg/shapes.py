@@ -6,6 +6,7 @@ import math
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
+
 def area_rectangle(length: float, width: float) -> float:
     """
     Calculates the area of a rectangle.
@@ -24,6 +25,7 @@ def area_rectangle(length: float, width: float) -> float:
         raise ValueError("Length and width must be non-negative.")
     return length * width
 
+
 def area_circle(radius: float) -> float:
     """
     Calculates the area of a circle.
@@ -39,7 +41,8 @@ def area_circle(radius: float) -> float:
     """
     if radius < 0:
         raise ValueError("Radius must be non-negative.")
-    return math.pi * radius ** 2
+    return math.pi * radius**2
+
 
 def area_triangle(base: float, height: float) -> float:
     """
@@ -59,6 +62,7 @@ def area_triangle(base: float, height: float) -> float:
         raise ValueError("Base and height must be non-negative.")
     return 0.5 * base * height
 
+
 def plot_rectangle(length: float, width: float, origin: tuple[float, float] = (0, 0)):
     """
     Visualizes a rectangle with its dimensions.
@@ -75,16 +79,39 @@ def plot_rectangle(length: float, width: float, origin: tuple[float, float] = (0
         raise ValueError("Length and width must be positive for visualization.")
 
     fig, ax = plt.subplots(1)
-    ax.set_aspect('equal', adjustable='box')
+    ax.set_aspect("equal", adjustable="box")
 
-    rect_patch = patches.Rectangle(origin, length, width, linewidth=1, edgecolor='r', facecolor='lightcoral', alpha=0.6)
+    rect_patch = patches.Rectangle(
+        origin,
+        length,
+        width,
+        linewidth=1,
+        edgecolor="r",
+        facecolor="lightcoral",
+        alpha=0.6,
+    )
     ax.add_patch(rect_patch)
 
     # Add dimension labels
     center_x = origin[0] + length / 2
-    ax.text(center_x, origin[1] - 0.05 * width, f'Length: {length}', ha='center', va='top', fontsize=9)
+    ax.text(
+        center_x,
+        origin[1] - 0.05 * width,
+        f"Length: {length}",
+        ha="center",
+        va="top",
+        fontsize=9,
+    )
     center_y = origin[1] + width / 2
-    ax.text(origin[0] - 0.05 * length, center_y, f'Width: {width}', ha='right', va='center', rotation='vertical', fontsize=9)
+    ax.text(
+        origin[0] - 0.05 * length,
+        center_y,
+        f"Width: {width}",
+        ha="right",
+        va="center",
+        rotation="vertical",
+        fontsize=9,
+    )
 
     # Set plot limits with padding
     padding_x = length * 0.25
@@ -97,6 +124,7 @@ def plot_rectangle(length: float, width: float, origin: tuple[float, float] = (0
     plt.title(f"Rectangle (L={length}, W={width})")
     plt.grid(True)
     plt.show()
+
 
 def plot_circle(radius: float, center: tuple[float, float] = (0, 0)):
     """
@@ -113,17 +141,27 @@ def plot_circle(radius: float, center: tuple[float, float] = (0, 0)):
         raise ValueError("Radius must be positive for visualization.")
 
     fig, ax = plt.subplots(1)
-    ax.set_aspect('equal', adjustable='box')
+    ax.set_aspect("equal", adjustable="box")
 
-    circle_patch = patches.Circle(center, radius, linewidth=1, edgecolor='b', facecolor='lightblue', alpha=0.6)
+    circle_patch = patches.Circle(
+        center, radius, linewidth=1, edgecolor="b", facecolor="lightblue", alpha=0.6
+    )
     ax.add_patch(circle_patch)
 
     # Add dimension label (radius line and text)
-    ax.plot([center[0], center[0] + radius * math.cos(math.pi/4)], 
-            [center[1], center[1] + radius * math.sin(math.pi/4)], 'k--')
-    ax.text(center[0] + radius * 0.5 * math.cos(math.pi/4), 
-            center[1] + radius * 0.5 * math.sin(math.pi/4) + radius*0.05, 
-            f'Radius: {radius}', ha='center', va='bottom', fontsize=9)
+    ax.plot(
+        [center[0], center[0] + radius * math.cos(math.pi / 4)],
+        [center[1], center[1] + radius * math.sin(math.pi / 4)],
+        "k--",
+    )
+    ax.text(
+        center[0] + radius * 0.5 * math.cos(math.pi / 4),
+        center[1] + radius * 0.5 * math.sin(math.pi / 4) + radius * 0.05,
+        f"Radius: {radius}",
+        ha="center",
+        va="bottom",
+        fontsize=9,
+    )
 
     # Set plot limits with padding
     padding = radius * 0.25
@@ -135,6 +173,7 @@ def plot_circle(radius: float, center: tuple[float, float] = (0, 0)):
     plt.title(f"Circle (R={radius})")
     plt.grid(True)
     plt.show()
+
 
 def plot_triangle(base: float, height: float, origin: tuple[float, float] = (0, 0)):
     """
@@ -155,17 +194,34 @@ def plot_triangle(base: float, height: float, origin: tuple[float, float] = (0, 
         raise ValueError("Base and height must be positive for visualization.")
 
     fig, ax = plt.subplots(1)
-    ax.set_aspect('equal', adjustable='box')
+    ax.set_aspect("equal", adjustable="box")
 
     v0 = origin
     v1 = (origin[0] + base, origin[1])
     v2 = (origin[0], origin[1] + height)
-    triangle_patch = patches.Polygon([v0, v1, v2], linewidth=1, edgecolor='g', facecolor='lightgreen', alpha=0.6)
+    triangle_patch = patches.Polygon(
+        [v0, v1, v2], linewidth=1, edgecolor="g", facecolor="lightgreen", alpha=0.6
+    )
     ax.add_patch(triangle_patch)
 
     # Add dimension labels
-    ax.text(origin[0] + base / 2, origin[1] - 0.05 * height, f'Base: {base}', ha='center', va='top', fontsize=9)
-    ax.text(origin[0] - 0.05 * base, origin[1] + height / 2, f'Height: {height}', ha='right', va='center', rotation='vertical', fontsize=9)
+    ax.text(
+        origin[0] + base / 2,
+        origin[1] - 0.05 * height,
+        f"Base: {base}",
+        ha="center",
+        va="top",
+        fontsize=9,
+    )
+    ax.text(
+        origin[0] - 0.05 * base,
+        origin[1] + height / 2,
+        f"Height: {height}",
+        ha="right",
+        va="center",
+        rotation="vertical",
+        fontsize=9,
+    )
 
     # Set plot limits with padding
     padding_x = base * 0.25
