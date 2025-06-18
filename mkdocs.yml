@@ -1,0 +1,31 @@
+site_name: Michelle's Package Documentation
+site_url: https://example.com/
+
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - 'User Guide':
+    - 'Installation': user-guide/installation.md
+    - 'Getting Started': user-guide/getting-started.md
+  - 'API Reference': api.md
+  - 'About': about.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_root_heading: true
+            # members_order: source # Optional: to order members as in source
+            # show_signature_annotations: true # Optional: to show type hints in signatures
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - toc:
+      permalink: true
